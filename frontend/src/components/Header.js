@@ -8,7 +8,7 @@ const Header = () => {
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Hostell</Navbar.Brand>
+            <Navbar.Brand>Play</Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -16,7 +16,7 @@ const Header = () => {
             <Nav className='ml-auto'>
               <LinkContainer to='/hostel'>
                 <Nav.Link>
-                  <i className='fas fa-home'></i> Hostel
+                  <i className='fa fa-shopping-cart'></i> Cart
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to='/login'>

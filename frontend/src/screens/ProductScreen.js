@@ -5,17 +5,17 @@ import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import axios from 'axios'
 
-const HostelScreen = ({ match }) => {
-  const [hostel, setHostel] = useState({})
+const ProductScreen = ({ match }) => {
+  const [product, setProduct] = useState({})
 
   useEffect(() => {
-    const fetchHostel = async () => {
-      const { data } = await axios.get(`/api/hostels/${match.params.id}`)
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${match.params.id}`)
 
-      setHostel(data)
+      setProduct(data)
     }
 
-    fetchHostel()
+    fetchProduct()
   }, [match])
 
   return (
@@ -25,26 +25,26 @@ const HostelScreen = ({ match }) => {
       </Link>
       <Row>
         <Col md={6}>
-          <Image src={hostel.image} alt={hostel.name} fluid />
+          <Image src={product.image} alt={product.name} fluid />
         </Col>
         <Col md={3}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h3>{hostel.name}</h3>
+              <h3>{product.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
               <Rating
-                value={hostel.rating}
-                text={`${hostel.numReviews} reviews`}
+                value={product.rating}
+                text={`${product.numReviews} reviews`}
               />
             </ListGroup.Item>
             <ListGroup.Item>
               <strong>
-                {hostel.location},{hostel.city}
+                {product.location},{product.city}
               </strong>
             </ListGroup.Item>
-            <ListGroup.Item>Price: Rs.{hostel.price}\Month</ListGroup.Item>
-            <ListGroup.Item>Description: {hostel.description}</ListGroup.Item>
+            <ListGroup.Item>Price: Rs.{product.price}\Month</ListGroup.Item>
+            <ListGroup.Item>Description: {product.description}</ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}>
@@ -54,7 +54,7 @@ const HostelScreen = ({ match }) => {
                 <Row>
                   <Col>Price:</Col>
                   <Col>
-                    <strong>Rs.{hostel.price}</strong>
+                    <strong>Rs.{product.price}</strong>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -64,7 +64,7 @@ const HostelScreen = ({ match }) => {
                 <Row>
                   <Col>Status:</Col>
                   <Col>
-                    {hostel.roomAvailabe > 0 ? 'Available' : 'Not Available'}
+                    {product.roomAvailabe > 0 ? 'Available' : 'Not Available'}
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -72,9 +72,9 @@ const HostelScreen = ({ match }) => {
                 <Button
                   className='btn-block'
                   type='button'
-                  disabled={hostel.roomAvailabe === 0}
+                  disabled={product.roomAvailabe === 0}
                 >
-                  Select Hostel
+                  Select Product
                 </Button>
               </ListGroup.Item>
             </ListGroup>
@@ -85,4 +85,4 @@ const HostelScreen = ({ match }) => {
   )
 }
 
-export default HostelScreen
+export default ProductScreen

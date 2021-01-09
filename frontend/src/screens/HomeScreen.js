@@ -1,29 +1,29 @@
 import { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
-import Hostel from '../components/Hostel'
+import Product from '../components/Product'
 import React from 'react'
 import axios from 'axios'
 
 const HomeScreen = () => {
-  const [hostels, setHostels] = useState([])
+  const [product, setProducts] = useState([])
 
   useEffect(() => {
-    const fetchHostels = async () => {
-      const { data } = await axios.get('/api/hostels')
+    const fetchProducts = async () => {
+      const { data } = await axios.get('/api/products')
 
-      setHostels(data)
+      setProducts(data)
     }
 
-    fetchHostels()
+    fetchProducts()
   }, [])
 
   return (
     <>
-      <h1>Latest Hostels</h1>
+      <h1>Latest Products</h1>
       <Row>
-        {hostels.map((hostel) => (
-          <Col key={hostel._id} sm={12} md={6} lg={4} xl={3}>
-            <Hostel hostel={hostel} />
+        {product.map((product) => (
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+            <Product product={product} />
           </Col>
         ))}
       </Row>
