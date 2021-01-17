@@ -19,3 +19,18 @@ h2 {
 .rating span {
   margin: 0.1rem;
 }
+
+.custom-btn {
+  background: #fff;
+  color: red;
+  border: 2px solid red;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+  width: 50rem;
+}
